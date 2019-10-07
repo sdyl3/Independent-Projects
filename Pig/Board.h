@@ -1,28 +1,16 @@
-//
 //  Board.h
-//  Pig
-//
-//
 
 #ifndef BOARD_H
 #define BOARD_H
 #include <string>
 
-namespace cs31
-{
-    // CS 31 students have been provided this class to represent
-    // a Pig Board.  Each Board is made up of a Human score and total
-    // as well as a Computer score and total.  A Board also knows the
-    // most recent value rolled, whether the game is over, whose
-    // turn it is to roll and whether the computer or human won.
-    // The display( ) method is used by the Pig game to print the
-    // current state of the game.
-    // CS 31 students need to complete the TODO portions of this class
-    class Board
-    {
+namespace cs {
+    // Each Board is made up of a Human score and total as well as a Computer score and total.  
+    // A Board also knows the most recent value rolled, whether the game is over, whose turn it is to roll and whether the computer or human won.
+    // The display( ) method is used by the Pig game to print the current state of the game.
+    class Board {
     public:
         Board();
-        
         // accessor and mutator for the human's score
         void setHumanScore( int score );
         int  getHumanScore() const;
