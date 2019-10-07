@@ -1,16 +1,7 @@
-//
 //  Board.cpp
-//  Bunco
-//
-//  Created by Howard Stahl on 1/27/17.
-//  Copyright © 2017 Howard Stahl. All rights reserved.
-//
 
 #include "Board.h"
-
-
-namespace cs31
-{
+namespace cs {
     Board::Board() : mHumanScore( 0 ), mHumanTotal(0), mComputerScore(0), mComputerTotal(0), mRolledValue(0), mIsHumanTurn(true), mGameOver(false), mHumanWon(false)
     {
 
