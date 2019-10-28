@@ -1,10 +1,4 @@
-//
 //  BoxOffice.h
-//  Project5
-//
-//  Created by Sandy Li on 2/25/19.
-//  Copyright © 2019 Yinling Li. All rights reserved.
-//
 
 #ifndef BOXOFFICE_H
 #define BOXOFFICE_H
