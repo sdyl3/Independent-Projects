@@ -1,10 +1,4 @@
-//
 //  Ticket.cpp
-//  Project5
-//
-//  Created by Sandy Li on 2/25/19.
-//  Copyright © 2019 Yinling Li. All rights reserved.
-//
 
 #include <iostream>
 #include <string>
