@@ -5,7 +5,7 @@
 
 #include "Ticket.h"
 #include "BoxOffice.h"
-#include "Project5Helper.h"
+#include "helper.h"
 using namespace std;
 
 Ticket BoxOffice::buyTicket(string row, int seat, string event, string venue, Ticket::KIND kind, string daytime)
@@ -16,7 +16,7 @@ Ticket BoxOffice::buyTicket(string row, int seat, string event, string venue, Ti
 
 Ticket BoxOffice::buyRoyceHallTicket(string row, int seat, string event, string venue, Ticket::KIND kind, string daytime)
 {
-    Project5Helper tester;
+    helper tester;
     Ticket soldTicket = buyTicket(row, seat, event, "Royce Hall", kind, daytime);
     double price = 0;
 
@@ -55,7 +55,7 @@ Ticket BoxOffice::buyRoyceHallTicket(string row, int seat, string event, string 
 
 Ticket BoxOffice::buyRoyceHallStudentTicket(string row, int seat, string event, string venue, Ticket::KIND kind, string daytime)
 {
-    Project5Helper tester;
+    helper tester;
     Ticket soldTicket = buyRoyceHallTicket(row, seat, event, "Royce Hall", kind, daytime);
     double price = soldTicket.getPrice();
 
@@ -71,7 +71,7 @@ Ticket BoxOffice::buyRoyceHallStudentTicket(string row, int seat, string event, 
 
 Ticket BoxOffice::buyRoyceHallStaffTicket(string row, int seat, string event, string venue, Ticket::KIND kind, string daytime)
 {
-    Project5Helper tester;
+    helper tester;
     Ticket soldTicket = buyRoyceHallTicket(row, seat, event, "Royce Hall", kind, daytime);
     double price = soldTicket.getPrice();
     
