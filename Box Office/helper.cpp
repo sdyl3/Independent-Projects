@@ -1,18 +1,18 @@
-//  Project5Helper.cpp
+//  helper.cpp
 
-#include "Project5Helper.h"
+#include "helper.h"
 
-Project5Helper::Project5Helper()
+helper::helper()
 {
 
 }
 
-bool Project5Helper::endsWithPM(const std::string & mainStr )
+bool helper::endsWithPM(const std::string & mainStr )
 {
     return( endsWith( mainStr, "PM" ) );
 }
 
-bool Project5Helper::endsWith(const std::string & mainStr, const std::string & toMatch)
+bool helper::endsWith(const std::string & mainStr, const std::string & toMatch)
 {
     bool result( false );
     if(mainStr.size() >= toMatch.size() &&
@@ -24,7 +24,7 @@ bool Project5Helper::endsWith(const std::string & mainStr, const std::string & t
 }
 
 
-bool Project5Helper::startsWith(const std::string & mainStr, const std::string & toMatch)
+bool helper::startsWith(const std::string & mainStr, const std::string & toMatch)
 {
     bool result( false );
     // std::string::find returns 0 if toMatch is found at starting
@@ -36,7 +36,7 @@ bool Project5Helper::startsWith(const std::string & mainStr, const std::string &
 }
 
 
-bool Project5Helper::startsWithOrchestra(const std::string & mainStr )
+bool helper::startsWithOrchestra(const std::string & mainStr )
 {
     return( startsWith( mainStr, "Orchestra" ) );
 }
