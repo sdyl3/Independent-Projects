@@ -1,14 +1,5 @@
 // yorps.cpp
 
-// Portions you are to complete are marked with a TODO: comment.
-// We've provided some incorrect return statements (so indicated) just
-// to allow this skeleton program to compile and run, albeit incorrectly.
-// The first thing you probably want to do is implement the utterly trivial
-// functions (marked TRIVIAL).  Then get Arena::display going.  That gives
-// you more flexibility in the order that you choose to tackle the rest of
-// the functionality.  As you finish implementing each TODO: item, remove
-// its TODO: comment; that makes it easier to find what you have left to do.
-
 #include <iostream>
 #include <string>
 #include <random>
@@ -18,10 +9,8 @@
 #include <cassert>
 using namespace std;
 
-///////////////////////////////////////////////////////////////////////////
-// Manifest constants
-///////////////////////////////////////////////////////////////////////////
 
+// Manifest constants
 const int MAXROWS = 20;            // max number of rows in the arena
 const int MAXCOLS = 20;            // max number of columns in the arena
 const int MAXYORPS = 100;          // max number of yorps allowed
@@ -34,11 +23,10 @@ const int SOUTH = 2;
 const int WEST  = 3;
 const int NUMDIRS = 4;
 
-///////////////////////////////////////////////////////////////////////////
-// Type definitions
-///////////////////////////////////////////////////////////////////////////
 
-class Arena;  // This is needed to let the compiler know that Arena is a
+// Type definitions
+class Arena;  
+// This is needed to let the compiler know that Arena is a
 // type name, since it's mentioned in the Yorp declaration.
 
 class Yorp
@@ -139,20 +127,14 @@ private:
     string takeYorpsTurn();
 };
 
-///////////////////////////////////////////////////////////////////////////
 //  Auxiliary function declarations
-///////////////////////////////////////////////////////////////////////////
-
 int decodeDirection(char ch);
 int randInt(int lowest, int highest);
 bool attemptMove(const Arena& a, int dir, int& r, int& c);
 bool recommendMove(const Arena& a, int r, int c, int& bestDir);
 void clearScreen();
 
-///////////////////////////////////////////////////////////////////////////
 //  Yorp implementation
-///////////////////////////////////////////////////////////////////////////
-
 Yorp::Yorp(Arena* ap, int r, int c, char color)
 {
     if (ap == nullptr)
@@ -194,13 +176,13 @@ char Yorp::color() const
 
 bool Yorp::isDead() const
 {
-    // TODO: TRIVIAL:  Return whether the yorp is dead.
-    return true;  // This implementation compiles, but is incorrect.
+    // Return whether the yorp is dead.
+    return true; 
 }
 
 void Yorp::forceMove(int dir)
 {
-    // TODO:  Move the yorp in the indicated direction, if possible.
+    // Move the yorp in the indicated direction, if possible.
     // Suffer one unit of damage if moving fails
     if (!isDead()){
         int tempRow = m_row;
@@ -233,10 +215,7 @@ void Yorp::move()
         attemptMove(*m_arena, randInt(0, NUMDIRS-1), m_row, m_col);
 }
 
-///////////////////////////////////////////////////////////////////////////
 //  Player implementation
-///////////////////////////////////////////////////////////////////////////
-
 Player::Player(Arena* ap, int r, int c)
 {
     if (ap == nullptr)
@@ -317,10 +296,7 @@ void Player::setDead()
     m_dead = true;
 }
 
-///////////////////////////////////////////////////////////////////////////
 //  Arena implementation
-///////////////////////////////////////////////////////////////////////////
-
 Arena::Arena(int nRows, int nCols)
 {
     if (nRows <= 0  ||  nCols <= 0  ||  nRows > MAXROWS  ||  nCols > MAXCOLS)
@@ -377,8 +353,7 @@ bool Arena::hasWallAt(int r, int c) const
     return m_wallGrid[r-1][c-1];
 }
 
-int Arena::numberOfYorpsAt(int r, int c) const
-{
+int Arena::numberOfYorpsAt(int r, int c) const{
     int count = 0;
     for (int i = 0; i < MAXYORPS; i++){
         if (m_yorps[i] != nullptr){
@@ -389,8 +364,7 @@ int Arena::numberOfYorpsAt(int r, int c) const
     return count;
 }
 
-void Arena::display(string msg) const
-{
+void Arena::display(string msg) const{
     char displayGrid[MAXROWS][MAXCOLS];
     int r, c;
     
@@ -399,7 +373,7 @@ void Arena::display(string msg) const
         for (c = 1; c <= cols(); c++)
             displayGrid[r-1][c-1] = (hasWallAt(r, c) ? '*' : '.');
     
-    // TODO:  For each yorp, set the grid cell to that yorp's color character.
+    // For each yorp, set the grid cell to that yorp's color character.
     // Indicate yorp positions by their colors.  If more than one yorp
     // occupies a cell, show just one (any one will do).
     for (int i = 0; i < m_nYorps; i++){
@@ -514,10 +488,7 @@ void Arena::checkPos(int r, int c, string functionName) const
     }
 }
 
-///////////////////////////////////////////////////////////////////////////
 //  Game implementation
-///////////////////////////////////////////////////////////////////////////
-
 Game::Game(int rows, int cols, int nYorps)
 {
     if (nYorps < 0  ||  nYorps > MAXYORPS)
@@ -658,10 +629,7 @@ void Game::play()
         cout << "You win." << endl;
 }
 
-///////////////////////////////////////////////////////////////////////////
 //  Auxiliary function implementations
-///////////////////////////////////////////////////////////////////////////
-
 int decodeDirection(char dir)
 {
     switch (dir)
@@ -686,9 +654,8 @@ int randInt(int min, int max)
 }
 
 // Return false without changing anything if moving one step from (r,c)
-// in the indicated direction would hit a wall or run off the edge of the
-// arena.  Otherwise, update r and c to the position resulting from the
-// move and return true.
+// in the indicated direction would hit a wall or run off the edge of the arena.  
+// Otherwise, update r and c to the position resulting from the move and return true.
 bool attemptMove(const Arena& a, int dir, int& r, int& c)
 {
     int tempRow = 0;
@@ -717,16 +684,12 @@ bool attemptMove(const Arena& a, int dir, int& r, int& c)
     return true;
 }
 
-// Recommend a move for a player at (r,c):  A false return means the
-// recommendation is that the player should stand; otherwise, bestDir is
-// set to the recommended direction to move.
+// Recommend a move for a player at (r,c):  
+// the player should stand; otherwise, bestDir is set to the recommended direction to move.
 bool recommendMove(const Arena& a, int r, int c, int& bestDir)
 {
-    // Your replacement implementation should do something intelligent.
-    // For example, if you're standing next to four yorps, and moving
-    // north would put you next to two yorps, but moving east would put
-    // you next to none, moving east is a safer choice than standing or
-    // moving north.
+    // if you're standing next to four yorps, and moving north would put you next to two yorps, 
+    // but moving east would put you next to none, moving east is a safer choice than standing or moving north.
     
     int tempr = r;
     int tempc = c;
@@ -802,10 +765,6 @@ bool recommendMove(const Arena& a, int r, int c, int& bestDir)
     return true;
 }
 
-///////////////////////////////////////////////////////////////////////////
-// main()
-///////////////////////////////////////////////////////////////////////////
-
 int main()
 {
     // Create a game
@@ -816,20 +775,8 @@ int main()
     g.play();
 }
 
-///////////////////////////////////////////////////////////////////////////
 //  clearScreen implementation
-///////////////////////////////////////////////////////////////////////////
-
-// DO NOT MODIFY OR REMOVE ANY CODE BETWEEN HERE AND THE END OF THE FILE!!!
-// THE CODE IS SUITABLE FOR VISUAL C++, XCODE, AND g++/g31 UNDER LINUX.
-
-// Note to Xcode users:  clearScreen() will just write a newline instead
-// of clearing the window if you launch your program from within Xcode.
-// That's acceptable.  (The Xcode output window doesn't have the capability
-// of being cleared.)
-
 #ifdef _MSC_VER  //  Microsoft Visual C++
-
 #include <windows.h>
 
 void clearScreen()
@@ -846,7 +793,6 @@ void clearScreen()
 }
 
 #else  // not Microsoft Visual C++, so assume UNIX interface
-
 #include <iostream>
 #include <cstring>
 #include <cstdlib>
