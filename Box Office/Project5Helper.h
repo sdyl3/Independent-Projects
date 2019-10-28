@@ -1,11 +1,4 @@
-//
 //  Project5Helper.h
-//  Project5Helper
-//
-//  Created by Howard Stahl on 2/13/19.
-//  All rights reserved.
-//
-
 
 #ifndef PROJECT5HELPER_H
 #define PROJECT5HELPER_H
