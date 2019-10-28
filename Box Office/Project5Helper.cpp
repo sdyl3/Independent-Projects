@@ -1,10 +1,4 @@
-//
 //  Project5Helper.cpp
-//  Project5Helper
-//
-//  Created by Howard Stahl on 2/13/19.
-//  All rights reserved.
-//
 
 #include "Project5Helper.h"
 
