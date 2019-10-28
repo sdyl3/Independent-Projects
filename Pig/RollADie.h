@@ -1,15 +1,15 @@
-//  Pig.h
+//  RollADie.h
 
-#ifndef PIG_H
-#define PIG_H
+#ifndef ROLLADIE_H
+#define ROLLADIE_H
 #include <string>
 #include "Player.h"
 #include "Board.h"
 
 // Each Game is made up of a Board and two Players.
-class Pig{
+class RollADie{
 public:
-    Pig();
+    RollADie();
         
     // the possible results of a game:
     // - either the Human won or
