@@ -1,10 +1,5 @@
-//
 //  maze.cpp
-//  maze
-//
 //  Created by Sandy Li on 5/3/19.
-//  Copyright © 2019 Yinling Li. All rights reserved.
-//
 
 #include <iostream>
 #include <string>
