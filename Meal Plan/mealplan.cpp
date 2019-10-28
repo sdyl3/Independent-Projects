@@ -1,5 +1,4 @@
-// Code for Project 2
-// Yinling Li
+// mealplan.cpp
 
 #include <iostream>
 #include <string>
