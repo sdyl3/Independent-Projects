@@ -1,30 +1,24 @@
-//
 //  main.cpp
-//  Bunco
-//
-//  Created by Howard Stahl on 1/27/17.
-//  Copyright © 2017 Howard Stahl. All rights reserved.
-//
 
 #include <iostream>
 #include <cassert>
 #include "Die.h"
 #include "Player.h"
-#include "Pig.h"
+#include "RollADie.h"
 
 void clearScreen( );
-bool handleComputerPlay( cs31::Pig & game );
-void display( cs31::Pig & game, std::string message="", bool checkForGameOver=false );
+bool handleComputerPlay( cs::RollADie & game );
+void display( cs::RollADie & game, std::string message="", bool checkForGameOver=false );
 
 int main()
 {
-    using namespace cs31;
+    using namespace cs;
     using namespace std;
     
     Die d;
     Player p;
     Board board, b1;
-    Pig game;
+    RollADie game;
     
     // test code for Die set all values to be in the range of 1-6
     for (int i = 1; i <= 100; i++ )
@@ -284,19 +278,7 @@ void display( cs31::Pig & game, std::string message, bool checkForGameOver )
     }
 }
 
-
-
-///////////////////////////////////////////////////////////////////////////
 //  clearScreen implementations
-///////////////////////////////////////////////////////////////////////////
-
-// DO NOT MODIFY OR REMOVE ANY CODE BETWEEN HERE AND THE END OF THE FILE!!!
-// THE CODE IS SUITABLE FOR VISUAL C++, XCODE, AND g++ UNDER LINUX.
-
-// Note to Xcode users:  clearScreen() will just write a newline instead
-// of clearing the window if you launch your program from within Xcode.
-// That's acceptable.
-
 #ifdef _MSC_VER  //  Microsoft Visual C++
 
 #include <windows.h>
