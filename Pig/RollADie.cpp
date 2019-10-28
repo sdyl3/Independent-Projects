@@ -1,24 +1,24 @@
-//  Pig.cpp
+//  RollADie.cpp
 
-#include "Pig.h"
+#include "RollADie.h"
 #include <iostream>
 
-    Pig::Pig() {
+    RollADie::RollADie() {
 
     }
     
     // stringify the Game by stringifying the Game's Board
-    std::string Pig::display( std::string msg ) {
+    std::string RollADie::display( std::string msg ) {
         using namespace std;
         std::string s = mBoard.display();
         s = s + msg;
 
         if (isGameOver()) {
             if (determineGameOutcome() == HUMANWONGAME) {
-                s = s + "\n\t\tyou won Pig!\n";
+                s = s + "\n\t\tyou won RollADie!\n";
             }
             else {
-                s = s + "\n\t\tyou lost Pig!\n";
+                s = s + "\n\t\tyou lost RollADie!\n";
             }
         }
         return( s );
@@ -32,7 +32,7 @@
     // once you have a rolled amount, inform the board that it is now
     // the human's turn, set the board's rolled value and update the board's
     // human score accordingly
-    int Pig::humanPlay( int amount ) {
+    int RollADie::humanPlay( int amount ) {
         int amountRolled = 0;
         if (amount == 0)
             amountRolled = mHuman.roll(0);
@@ -46,7 +46,7 @@
     
     // inform the human Player that their turn has ended
     // update the board's human total
-    void Pig::humanEndTurn() {
+    void RollADie::humanEndTurn() {
         mHuman.endTurn();
         mBoard.setHumanTotal( mHuman.getTotal() );
     }
@@ -59,7 +59,7 @@
     // once you have a rolled amount, inform the board that it is now
     // the computer's turn, set the board's rolled value and update the board's
     // computer score accordingly
-    int Pig::computerPlay( int amount ){
+    int RollADie::computerPlay( int amount ){
         int amountRolled = 0;
         if (amount == 0)
             amountRolled = mComputer.roll(0);
@@ -74,7 +74,7 @@
     // when keeprolling returns true, the computer will keep rolling
     // this method implements a 60% chance to keep rolling
     // unless the score plus the existing total >= SCORENECESSARYTOWIN
-    bool Pig::computerKeepRolling() const{
+    bool RollADie::computerKeepRolling() const{
         bool result( false );
         Die d( 5 );
         d.roll();
@@ -89,13 +89,13 @@
     
     // inform the computer Player that their turn has ended
     // update the board's computer total
-    void Pig::computerEndTurn() {
+    void RollADie::computerEndTurn() {
         mComputer.endTurn();
         mBoard.setComputerTotal( mComputer.getTotal() );
     }
     
     // determines the game outcome at this moment
-    Pig::GAMEOUTCOME  Pig::determineGameOutcome( ) const {
+    RollADie::GAMEOUTCOME  RollADie::determineGameOutcome( ) const {
         GAMEOUTCOME result = GAMEOUTCOME::GAMENOTOVER;
         if (mBoard.getHumanTotal() >= SCORENECESSARYTOWIN)
             result = GAMEOUTCOME::HUMANWONGAME;
@@ -108,7 +108,7 @@
     // determines if the game is over
     // if it has, return true and inform the board that the game is over and
     // inform the board that the Human won or the Computer won, accordingly
-    bool Pig::isGameOver(){
+    bool RollADie::isGameOver(){
         GAMEOUTCOME result = determineGameOutcome();
         if (result == GAMEOUTCOME::HUMANWONGAME) {
             mBoard.markHumanAsWinner();
