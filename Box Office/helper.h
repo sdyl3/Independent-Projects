@@ -1,14 +1,14 @@
-//  Project5Helper.h
+//  helper.h
 
-#ifndef PROJECT5HELPER_H
-#define PROJECT5HELPER_H
+#ifndef HELPER_H
+#define HELPER_H
 
 #include <string>
 
-class Project5Helper
+class helper
 {
 public:
-    Project5Helper();
+    helper();
 
     bool startsWithOrchestra(const std::string & mainStr );
     bool startsWith(const std::string & mainStr, const std::string & toMatch);
